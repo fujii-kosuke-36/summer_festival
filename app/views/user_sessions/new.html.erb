@@ -1,12 +1,8 @@
 <div class="hero flex min-h-screen items-center justify-center bg-base-200">
   <div class="hero-content flex-col w-full max-w-md ">
     <div class=" shadow-lg rounded px-12 pt-6 pb-8 mb-4 bg-base-100">
-      <h1 class="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">Sign up</h1>
+      <h1 class="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">login</h1>
         <%= form_with model: @user, local: true do |f| %>
-          <div class="form-control ">
-            <%= f.label :name, class:"block text-gray-700 text-sm font-normal mb-2" %>
-            <%= f.text_field :name, placeholder: 'name', class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-          </div>
           <div class="form-control">
             <%= f.label :email,class:"block text-gray-700 text-sm font-normal mb-2" %>
             <%= f.text_field :email, placeholder: '***@example.com', class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
@@ -15,15 +11,12 @@
             <%= f.label :password, class:"block text-gray-700 text-sm font-normal mb-2" %>
             <%= f.password_field :password, placeholder: 'password', class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
           </div>
-          <div class="form-control">
-            <%= f.label :password_confirmation, class:"block text-gray-700 text-sm font-normal mb-2" %>
-            <%= f.password_field :password_confirmation, placeholder: 'password_confirmation', class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-          </div>
           <div class="form-control mt-6">
-            <%= f.submit 'Sign up', class:'btn btn-primary px-4 py-2 rounded ' %>
+            <%= f.submit 'Login', class:'btn btn-primary px-4 py-2 rounded ' %>
           </div>
         <% end %>
           <label class="label flex-col">
+            <%= link_to 'Sign up', new_user_path, class:"mt-5 link link-hover font-normal text-sm text-blue-500 hover:text-blue-800" %>
             <%= link_to 'Forgot password?','#', class:"mt-5 link link-hover font-normal text-sm text-blue-500 hover:text-blue-800" %>
           </label>
         </div>
