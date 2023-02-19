@@ -32,6 +32,12 @@ gem "jbuilder"
 # Authentication
 gem 'sorcery'
 
+# For Spotify
+gem 'rspotify'
+
+# Set environment variable
+gem "dotenv-rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
