@@ -38,6 +38,12 @@ gem 'rspotify'
 # Set environment variable
 gem "dotenv-rails"
 
+#Search feature
+gem 'ransack'
+
+# scraping
+gem 'mechanize'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -62,6 +68,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "pry-byebug"
 end
 
 group :development do
