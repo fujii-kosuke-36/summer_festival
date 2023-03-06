@@ -1,8 +1,7 @@
 class ArtistsController < ApplicationController
   
     def index
-      @q = Theme.ransack(params[:q])
-      @artists = @q.result(distinct: true).includes(:user).page(params[:page])
+      @artist = artist.all.includes(:result).page(params[:page])
     end
 
     def show
