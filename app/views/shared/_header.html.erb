@@ -1,14 +1,15 @@
-<div class="navbar bg-base-100  bg-cyan-400">
+<div class="navbar   bg-white">
   <div class="flex-1">
     <ul class="btn btn-ghost normal-case text-xl">
-      <li><a><%= link_to "Summer Festivals" , root_path %></li></a>
+      <li><a><%= link_to "Summer Fest." , root_path %></li></a>
     </ul>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
-      <li><a><%= link_to '新規登録', new_user_path %></a></li>
-      <li><a><%= link_to 'ログイン', login_path %></a></li>
-      <li><a><%= link_to 'ゲストログイン', guest_login_path %></a></li>
+    <ul class="menu menu-horizontal px-1 ">
+      <li><a><%= link_to '新規登録', new_user_path, class: 'btn btn-success btn' %></a></li>
+      <li><a><%= link_to 'ログイン', login_path, class: 'btn btn-success btn' %></a></li>
+      <li><a><%= link_to 'ログアウト', logout_path, class: 'btn btn-success btn', data: { turbo_method: :delete } %></a></li>
     </ul>
   </div>
 </div>
+

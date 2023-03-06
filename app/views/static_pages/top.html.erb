@@ -1,104 +1,123 @@
 <div class="hero min-h-screen" style="background-image: url(<%= asset_path "miyakojima-12693_TP_V.jpg" %>);">
- <div class='pt-32 pb-12 md:pt-40 md:pb-20'>
+  <div class='pt-32 pb-12 md:pt-40 md:pb-20'>
   <div class='pb-12 text-center md:pb-16'>
     <h1 class='leading-tighter mb-4 text-7xl font-extrabold tracking-tighter md:text-8xl'>
-      <span class='p-2 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent'>
-        野外フェスター
+      <span class='p-2 bg-gradient-to-r  bg-white border-2 border-transparent rounded-lg text-md hover:bg-green-400 bg-clip-text text-transparent'>
+        Summer Fest.
       </span>
     </h1>
     <div class='mx-auto max-w-3xl'>
-      <p class='mb-8 text-5xl'>enjoy your music</p>
+      <p class='mb-2 text-5xl text-white'>enjoy your music</p>
       <div class='flex justify-center mt-5 '>
-        <div class='mt-5 text-7xl'>
-          <%= link_to root_path, class:'group inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 font-medium text-gray-900 hover:text-white focus:ring-4 focus:ring-blue-300 group-hover:from-purple-600 group-hover:to-blue-500' do %>
-            <span class='rounded-md bg-white px-10 py-5 transition-all duration-75 ease-in group-hover:bg-opacity-0'>
-              Artists
-            </span>
-          <% end %>
+        <div class='mt-10 text-3xl'>
+            <a href="#" class="px-10 py-10 mr-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400">
+                アーティスト一覧
+            </a>
+            <a href="#" class="px-10 py-10  text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400">
+                フェス一覧
+            </a>
         </div>
       </div>
     </div>
-        <div class='mt-5 text-7xl'>
-          <%= link_to root_path, class:'group inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 font-medium text-gray-900 hover:text-white focus:ring-4 focus:ring-blue-300 group-hover:from-purple-600 group-hover:to-blue-500' do %>
-            <span class='rounded-md bg-white px-8 py-5 transition-all duration-75 ease-in group-hover:bg-opacity-0'>
-              Festivals
-            </span>
-          <% end %>
-        </div>
-
-        <div class="mt-5 grid grid-cols-1 md:lg:xl:grid-cols-3 group bg-white shadow-xl shadow-neutral-100 border ">
-            <div class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                <span class="p-5 rounded-full bg-red-500 text-white shadow-lg shadow-red-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg></span>
-                <p class="text-xl font-medium text-slate-700 mt-3">掟１アーティストを予習しよう</p>
-                <p class="mt-2 text-sm text-slate-500">上記ボタンをクリックしてアーティストの勉強！</p>
-            </div>
-
-            <div
-                class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                <span class="p-5 rounded-full bg-orange-500 text-white shadow-lg shadow-orange-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg></span>
-                <p class="text-xl font-medium text-slate-700 mt-3">掟２　服装を確認しよう</p>
-                <p class="mt-2 text-sm text-slate-500">フェス当日は動きやすい格好で！日焼け止め必須</p>
-            </div>
-
-            <div class="p-10 flex flex-col items-center text-center group   md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                <span class="p-5 rounded-full bg-yellow-500 text-white shadow-lg shadow-yellow-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                    </svg></span>
-                <p class="text-xl font-medium text-slate-700 mt-3">掟３　荷物は身軽にしよう</p>
-                <p class="mt-2 text-sm text-slate-500">荷物はクロークに預ける事ができますが、  手荷物は貴重品など最低限に</p>
-            </div>
-
-
-            <div class="p-10 flex flex-col items-center text-center group   md:lg:xl:border-r hover:bg-slate-50 cursor-pointer">
-                <span class="p-5 rounded-full bg-lime-500 text-white shadow-lg shadow-lime-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg></span>
-                <p class="text-xl font-medium text-slate-700 mt-3">掟４　水分補給は確実に</p>
-                <p class="mt-2 text-sm text-slate-500">真夏の場合想像以上に体力を奪われます。ポカリや水たくさん飲みましょう</p>
-            </div>
-
-            <div class="p-10 flex flex-col items-center text-center group    md:lg:xl:border-r hover:bg-slate-50 cursor-pointer">
-                <span class="p-5 rounded-full bg-teal-500 text-white shadow-lg shadow-teal-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                    </svg></span>
-                <p class="text-xl font-medium text-slate-700 mt-3">掟５　グッズを買おう</p>
-                <p class="mt-2 text-sm text-slate-500">気になるアーティストがいたらグッズを買って応援しよう。開場直後は混雑するのでタイミングに注意</p>
-            </div>
-
-            <div class="p-10 flex flex-col items-center text-center group     hover:bg-slate-50 cursor-pointer">
-                <span class="p-5 rounded-full bg-indigo-500 text-white shadow-lg shadow-indigo-200"><svg
-                        xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg></span>
-                <p class="text-xl font-medium text-slate-700 mt-3">掟６　グルメを楽しもう</p>
-                <p class="mt-2 text-sm text-slate-500">会場内には美味しいグルメが盛りだくさん。食べ過ぎ注意
+        <div class="flex-wrap items-center justify-center gap-8 text-center sm:flex">
+            <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 dark:bg-gray-800">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-green-500 rounded-md">
+                        <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="py-1 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
+                    掟その１
+                </h3>
+                <p class="py-4 text-gray-500 text-md dark:text-gray-300">
+                    Encompassing today’s website design technology to integrated and build solutions relevant to your business.
                 </p>
             </div>
-        </div>
-    </div>
+            <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 sm:mt-16 md:mt-20 lg:mt-24 dark:bg-gray-800">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-green-500 rounded-md">
+                        <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
+                    掟その２
+                </h3>
+                <p class="py-4 text-gray-500 text-md dark:text-gray-300">
+                    Share relevant, engaging, and inspirational brand messages to create a connection with your audience.
+                </p>
+            </div>
+            <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 dark:bg-gray-800">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-green-500 rounded-md">
+                        <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="py-1 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
+                    掟その３
+                </h3>
+                <p class="py-4 text-gray-500 text-md dark:text-gray-300">
+                    Let us help you level up your search engine game, explore our solutions for digital marketing for your business.
+                </p>
+            </div>
+            <div class="flex-wrap items-center justify-center gap-8 text-center sm:flex">
+            <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 dark:bg-gray-800">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-green-500 rounded-md">
+                        <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
+                    掟その４
+                </h3>
+                <p class="py-4 text-gray-500 text-md dark:text-gray-300">
+                    Encompassing today’s website design technology to integrated and build solutions relevant to your business.
+                </p>
+            </div>
+            <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 sm:mt-16 md:mt-20 lg:mt-24 dark:bg-gray-800">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-green-500 rounded-md">
+                        <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
+                    掟その５
+                </h3>
+                <p class="py-4 text-gray-500 text-md dark:text-gray-300">
+                    Share relevant, engaging, and inspirational brand messages to create a connection with your audience.
+                </p>
+            </div>
+            <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 dark:bg-gray-800">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-green-500 rounded-md">
+                        <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
+                    掟その６
+                </h3>
+                <p class="py-4 text-gray-500 text-md dark:text-gray-300">
+                    Let us help you level up your search engine game, explore our solutions for digital marketing for your business.
+                </p>
+            </div>
+          </div>
       </div>
     </div>
   </div>
