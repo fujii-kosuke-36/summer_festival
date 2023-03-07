@@ -20,6 +20,10 @@ data = []
  
   artists.each do |data|
     p data.inner_html
+    artist_info = RSpotify::Artist.search("#{data.inner_html}").first
+    artist_id = artist_info.id
+    artist_name = data.inner_html
+    artist_image = artist_info.images.first.url
     sleep 1
   end
   
