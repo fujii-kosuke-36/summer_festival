@@ -1,0 +1,7 @@
+<% if !my_answer.present? %>
+    <%= link_to "この曲にする", artist_answers_path(artist, answer: "#{song.id}"), data: { turbo_method: :post },
+        class: "border border-2 rounded m-4 px-2 py-3 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 rounded-full font-bold self-center text-center" %>
+<% else %>
+    <%= link_to "解答を更新", artist_answer_path(artist, my_answer, answer: "#{song.id}"), data: { turbo_method: :patch },
+        class: "border border-2 text-xs md:text-m xl:text-base ml-2 md:mr-1 xl:mr-2 2xl:mr-16 px-1 md:px-2 xl:px-3 py-3 lg:py-4 border-black bg-white hover:bg-red-500 text-black rounded-full font-bold self-center text-center" %>
+<% end %>
