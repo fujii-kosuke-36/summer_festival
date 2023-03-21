@@ -44,6 +44,13 @@ gem 'ransack'
 # scraping
 gem 'mechanize'
 
+# seed
+gem 'seed-fu'
+
+#Pagenation
+gem 'kaminari'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
