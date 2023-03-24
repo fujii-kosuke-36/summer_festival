@@ -1,16 +1,29 @@
-<div class="navbar   bg-white">
+<div class="navbar bg-base-100">
   <div class="flex-1">
     <ul class="btn btn-ghost normal-case text-xl">
       <li><a><%= link_to "Summer Fest." , root_path %></li></a>
     </ul>
   </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal px-1 ">
-      <li><a><%= link_to '新規登録', new_user_path, class: 'btn btn-success btn' %></a></li>
-      <li><a><%= link_to 'ログイン', login_path, class: 'btn btn-success btn' %></a></li>
-      <li><a><%= link_to 'ゲストログイン', guest_login_path, class: 'btn btn-success btn' %></a></li>
-      <li><a><%= link_to 'ログアウト', logout_path, class: 'btn btn-success btn', data: { turbo_method: :delete } %></a></li>
-    </ul>
+  <div class="flex-none gap-2">
+    <div class="form-control">
+      <input type="text" placeholder="Search" class="input input-bordered" />
+    </div>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+        <div class="w-10 rounded-full">
+          <img src="https://placehold.jp/89ea1a/ffffff/150x150.png?text=sample" />
+        </div>
+      </label>
+      <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+        <li>
+          <a class="justify-between">
+            Profile
+            <span class="badge">New</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a><%= link_to 'ログアウト', logout_path, class: 'btn btn-success btn', data: { turbo_method: :delete } %></a></li>
+      </ul>
+    </div>
   </div>
 </div>
-
