@@ -6,12 +6,12 @@
         <p class="font-mplus sm:text-base text-sm text-blackpanther">曲名でヒットしない場合アーティスト名を追加して下さい</p>
       </div>
       <div class="mx-auto sm:max-w-md max-w-sm">
-        <%= form_with url: new_artist_answer_path, method: :get, html: { data: { turbo_frame: "song_search" } } do |form| %>
+       <%= form_with url:new_artist_answer_path, method: :get, html: { data: { turbo_frame: "song_search" } } do |form| %>
           <div class="flex justify-center border-b border-teal-500 py-2">
             <%= form.text_field :search, placeholder: "曲名で検索", class: "appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"  %>
             <%= form.submit "検索", class: "rounded px-5 py-2.5 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300" %>
           </div>
-        <% end %>
+      <% end %>
       </div>
     </div>
   </section>

@@ -1,12 +1,12 @@
-class AnswersController < ApplicationController
-
+ class AnswersController < ApplicationController
+    before_action :require_login
     def new
-    @artist = Artist.find(params[:artist_id])
+      @artist = Artist.find(params[:artist_id])
       if params[:search]
-      @songs = RSpotify::Track.search(params[:search]).first(10) unless params[:search].empty?
-      end
-      if current_user
-      @my_answer = Answer.where(artist_id: @artist).where(user_id: current_user.id).first
+        @songs = RSpotify::Track.search(params[:search]).first(10) unless params[:search].empty?
+        if current_user
+          @my_answer = Answer.where(artist_id: @artist).where(user_id: current_user.id).first
+        end
       end
     end
     
@@ -19,6 +19,6 @@ class AnswersController < ApplicationController
     
     private
     def answer_params
-      params.permit(:answer).merge(artist_id: params[:artist_id])
+      params.permit(:answer, :artist_id).merge(user_id: current_user.id)
     end
 end
