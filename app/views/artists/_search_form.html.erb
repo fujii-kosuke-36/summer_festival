@@ -1,0 +1,9 @@
+<%= search_form_for q, url: url do |f| %>
+  <div class="input-group mb-3 flex justify-center">
+    <%= f.search_field :artist_name_cont, class: 'form-control', placeholder: "アーティスト検索" %>
+    <div class="input-group-append">
+      <%= f.submit class: 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>
+
