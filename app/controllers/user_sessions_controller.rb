@@ -18,7 +18,7 @@ class UserSessionsController < ApplicationController
   end
 
   # ユーザー登録のメソッド
-def guest_login
+  def guest_login
     # ランダムな文字列を作成
     random_string = SecureRandom.alphanumeric(10)
     # メールアドレスを作成

@@ -16,9 +16,21 @@
         redirect_to artist_path(@answer.artist)
       end
     end
+
+    def update
+      @answer = Answer.find(params[:id])
+      if @answer.update(answer_params)
+        redirect_to artist_path(@artist)
+    end
+
+    def destroy
+     @answer = Answer.find(params[:id])
+     @answer.destroy
+     redirect_to artist_path(@answer.artist)
+    end
     
     private
     def answer_params
-      params.permit(:answer, :artist_id).merge(user_id: current_user.id)
+      params.permit(:answer).merge(artist_id: params[:artist_id])
     end
 end

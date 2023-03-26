@@ -3,10 +3,10 @@
     <div class="container mx-auto">
       <div class="text-center mb-8">
         <h1 class="lg:text-3xl text-2xl text-center text-blackpanther font-udpmincho mb-4">おすすめ曲を検索する</h1>
-        <p class="font-mplus sm:text-base text-sm text-blackpanther">曲名でヒットしない場合アーティスト名を追加して下さい</p>
+        <p class="font-mplus sm:text-base text-sm text-blackpanther">曲名orアーティスト名で検索</p>
       </div>
       <div class="mx-auto sm:max-w-md max-w-sm">
-       <%= form_with url:new_artist_answer_path, method: :get, html: { data: { turbo_frame: "song_search" } } do |form| %>
+      <%= form_with url:new_artist_answer_path, method: :get, html: { data: { turbo_frame: "song_search" } } do |form| %>
           <div class="flex justify-center border-b border-teal-500 py-2">
             <%= form.text_field :search, placeholder: "曲名で検索", class: "appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"  %>
             <%= form.submit "検索", class: "rounded px-5 py-2.5 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300" %>
@@ -17,14 +17,9 @@
   </section>
 <div>
 
+#検索して曲を選択すると、その曲を選択したアーティストのおすすめ曲として登録できる
 <div class="w-11/12 md:w-6/10 lg:w-1/2 mx-auto">
   <%= turbo_frame_tag "song_search" do %>
-    <div class="flex flex-col items-center text-center">
-      <% if @search_params && !@search_params.empty? %>
-        <div class="text-lg mt-5"><%= (t 'themes.search.result') %></div>
-        <div class="font-bold text-2xl mt-1 mb-4"><%= @search_params %></div>
-      <% end %>
-    </div>
     <% if @songs %>
       <% @songs.each do |song| %>
       <div class="my-4 flex">
