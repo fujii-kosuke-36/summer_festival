@@ -21,6 +21,7 @@
       @answer = Answer.find(params[:id])
       if @answer.update(answer_params)
         redirect_to artist_path(@artist)
+      end
     end
 
     def destroy
