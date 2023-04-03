@@ -246,6 +246,8 @@ GEM
     seed-fu (2.3.9)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
+    simple_calendar (2.4.3)
+      rails (>= 3.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -305,6 +307,7 @@ DEPENDENCIES
   ransack
   rspotify
   seed-fu
+  simple_calendar (~> 2.4)
   sorcery
   sprockets-rails
   stimulus-rails

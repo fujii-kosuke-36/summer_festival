@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :festivals
   resources :users, only: %i[new create]
   resources :artists do
-    resources :answers, only: %i[new create]
+    resources :answers, only: %i[new create update destroy]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

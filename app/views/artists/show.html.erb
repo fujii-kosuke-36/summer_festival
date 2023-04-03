@@ -1,23 +1,19 @@
 <div class="flex flex-col flex-wrap items-center mt-4">
-   
     <%= image_tag @artist.artist_image, {class:"w-4/5 md:w-3/5 lg:w-3/10 xl:w-4/12 2xl:w-1/4 mb-2 2xl:mb-5"} if @artist.artist_image %>
-    
     <h2 class="text-xl md:text-2xl font-semibold"><%= @artist.artist_name %></h2>
-
     <div class="flex justify-center mx-auto w-4/5 md:w-3/5 lg:w-1/3 2xl:w-1/5 mt-6 2xl:mt-8">
     <%= link_to "おすすめ曲を投稿する", new_artist_answer_path(@artist), class:"relative rounded px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300"%>
     </div>   
 </div>
 
 <%# ログインしているユーザーのanswerを一覧表示する処理 %>
-<div class='flex flex-wrap justify-center'>
+<div class='flex flex-wrap justify-center mx-auto mt-10'>   
   <% @answers.each do |answer| %>
     <div class="w-full max-w-sm rounded-lg xl:w-4/12 md:w-6/12">     
         <div class="px-5 pb-5">
         <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= answer.answer %>?utm_source=generator" width="78%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <h2 class="text-xl md:text-2xl font-semibold"><%= current_user.name %></h2>
-        </div>    
+        <h2 class="text-xl md:text-2xl font-semibold"><%= answer.user.name %></h2>
+        </div> 
     </div>
   <% end %>
 </div>
-
