@@ -1,15 +1,20 @@
-<div class="navbar   bg-white">
-  <div class="flex-1">
-    <ul class="btn btn-ghost normal-case text-xl">
-      <li><a><%= link_to "Summer Fest." , root_path %></li></a>
-    </ul>
+<nav class="bg-gray-800">
+  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center">
+        <ul class="flex items-baseline space-x-4">
+          <li><%= link_to "野外フェスター" , root_path, class: 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-2xl font-medium' %></li>
+        </ul>
+        <div class="hidden md:block ml-auto">
+          <div class="flex items-baseline space-x-4">
+            <a><%= link_to '新規登録', new_user_path, class: 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-md font-medium' %></a>
+            <a><%= link_to 'ログイン', login_path, class: 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-md font-medium' %></a>
+          </div>
+        </div>
+      </div>
   </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal px-1 ">
-      <li><a><%= link_to '新規登録', new_user_path, class: 'btn btn-success btn' %></a></li>
-      <li><a><%= link_to 'ログイン', login_path, class: 'btn btn-success btn' %></a></li>
-      <li><a><%= link_to 'ゲストログイン', guest_login_path, class: 'btn btn-success btn' %></a></li>
-      
-    </ul>
-  </div>
-</div>
+</nav>
+
+
+
+
+

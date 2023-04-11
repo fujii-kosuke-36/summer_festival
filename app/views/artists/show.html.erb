@@ -6,14 +6,24 @@
     </div>   
 </div>
 
-<%# ログインしているユーザーのanswerを一覧表示する処理 %>
+<div class="flex justify-center">
+  <div class="text-center">
+    <h3 class="text-light"><%= @track.name %></h3>
+    <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= @track.id %>?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+</div>
+
 <div class='flex flex-wrap justify-center mx-auto mt-10'>   
   <% @answers.each do |answer| %>
     <div class="w-full max-w-sm rounded-lg xl:w-4/12 md:w-6/12">     
         <div class="px-5 pb-5">
         <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= answer.answer %>?utm_source=generator" width="78%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <h2 class="text-xl md:text-2xl font-semibold"><%= answer.user.name %></h2>
+        <% if answer.user == current_user %>
+        <%= button_to "削除", artist_answer_path(answer), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>  
+        <% end %>
         </div> 
     </div>
   <% end %>
 </div>
+
