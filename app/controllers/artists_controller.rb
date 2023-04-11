@@ -9,5 +9,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @answers = @artist.answers.order(created_at: :desc)
     #おすすめ曲を表示するためのコード
+    tracks = RSpotify::Track.search(@artist.artist_name).first(10)
+    @track = tracks.find { |track| track.artists[0].name == @artist.artist_name }
   end
 end

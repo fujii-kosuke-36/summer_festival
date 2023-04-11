@@ -1,7 +1,7 @@
 class FestivalsController < ApplicationController
-  before_action :ensure_user, only: [:edit, :update, :destroy]
   def index
     @festivals = Festival.all
+    
   end
   
   def new
@@ -15,36 +15,39 @@ class FestivalsController < ApplicationController
   def create
     @festival = Festival.new(festival_params)
     if @festival.save
-      redirect_to festivals_path
+      redirect_to festivals_path, notice: "投稿しました"
     else
-      render :new
+      render 'new'
     end
   end
 
-  def edit
-  end
-  
-  def update
-    if @festival.update(festival_params)
-      redirect_to festival_path
+  def destroy
+    @festival = Festival.find(params[:id])
+    if @festival.destroy
+      redirect_to festivals_path, notice:"削除しました"
     else
       render :edit
     end
   end
 
-  def destroy
-    @festival.destroy
-    redirect_to festivals_path
+  def edit
+    @festival = Festival.find(params[:id])
+  end
+
+  def update
+    @festival = Festival.find(params[:id])
+    if @festival.update(festival_params)
+      redirect_to festivals_path, notice: "編集しました"
+    else
+      render 'edit'
+    end
   end
 
   private
-  def ensure_user
-    @festivals = current_user.festivals
-    @festival = @festivals.find_by(id: params[:id])
-    redirect_to festivals_path unless @festival
-  end
   
+  #user_idを入れる
   def festival_params
     params.require(:festival).permit(:title, :content, :start_time, :location).merge(user_id: current_user.id)
   end
+
 end

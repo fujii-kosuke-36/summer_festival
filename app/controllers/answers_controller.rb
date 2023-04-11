@@ -21,18 +21,21 @@
     def update
       @answer = Answer.find(params[:id])
       if @answer.update(answer_params)
-        redirect_to artist_path(@artist)
+        redirect_to artist_path(@answer.artist)
       end
     end
 
     def edit
       @answer = Answer.find(params[:id])
     end
-
+    
     def destroy
-     @answer = Answer.find(params[:id])
-     @answer.destroy
-     redirect_to artist_path(@answer.artist)
+      @answer = Answer.find(params[:id])
+      if @answer.destroy
+        redirect_to artist_answers_path, notice: "削除しました"
+      else
+        render :edit
+      end
     end
     
     private
