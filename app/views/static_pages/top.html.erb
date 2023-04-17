@@ -1,93 +1,19 @@
-<div class="hero min-h-screen" style="background-image: url(<%= asset_path "miyakojima-12693_TP_V.jpg" %>);">
-  <div class='pt-32 pb-12 md:pt-40 md:pb-20'>
-  <div class='pb-12 text-center md:pb-16'>
-    <h1 class='leading-tighter mb-4 text-7xl font-extrabold tracking-tighter md:text-7xl'>
-      <span class='p-2 bg-gradient-to-r  bg-white border-2 border-transparent rounded-lg text-md hover:bg-green-400 bg-clip-text text-transparent'>
-        音楽の未来は<br>
-        あなたの手に<br>
-        委ねられています。<br>
-      </span>
-    </h1>
-    <div class='mx-auto max-w-3xl'>
-      <p class='mb-2 text-5xl text-black'>一覧をクリックしてみましょう</p>
-      <div class='flex justify-center mt-5 '>
-        <div class='mt-10 text-3xl'>
-            
-            <a><%= link_to 'アーティスト一覧', artists_path, class: 'px-10 py-10 mr-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %></a>
-            <a><%= link_to 'フェス一覧', festivals_path, class: 'px-10 py-10  text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %></a>
-            
-        </div>
+<div class="h-screen bg-cover" style="background-image: url(<%= asset_path "ha-nguy-n-0rimaS8P9F0-unsplash.jpg" %>);">
+  <div class="flex h-full w-full items-center justify-center container mx-auto px-8">
+    <div class="max-w-2xl text-center">
+      <h1 class="leading-tighter mb-4 text-7xl font-extrabold tracking-tighter md:text-7xl">
+        <span class="p-2 bg-gradient-to-r bg-white border-2 border-transparent rounded-lg text-md hover:bg-green-400 bg-clip-text text-transparent">
+          最高の音楽と最高の仲間と共に！
+        </span>
+      </h1>
+      <h1 class="text-3xl sm:text-5xl capitalize tracking-widest text-white lg:text-7xl">Coming Soon</h1>
+      <p class="mt-6 lg:text-lg text-white">You can subscribe to our newsletter, and we'll let you know when we're back.</p>
+      <div class="flex justify-center mt-10">
+        <%= link_to 'Artist List', artists_path, class: 'px-10 py-4 mr-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
+        <%= link_to 'Festival List', festivals_path, class: 'px-10 py-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
       </div>
-    </div>
-    <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-col text-center w-full mb-20">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">フェスに参加すするのが初めての方は下記の掟をご一読ください</h1>
-        </div>
-        <div class="flex flex-wrap -m-4">
-        <div class="lg:w-1/3 sm:w-1/2 p-4">
-            <div class="flex relative">
-            <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://placehold.jp/00c800/ffffff/300x240.png?text=%E6%97%A5%E7%84%BC%E3%81%91">
-            <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-                <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">日焼け対策をしよう</h1>
-                <p class="leading-relaxed">日焼け止めは必需品です。真夏の場合塗り忘れると大変なことになります。</p>
-            </div>
-            </div>
-        </div>
-        <div class="lg:w-1/3 sm:w-1/2 p-4">
-            <div class="flex relative">
-            <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://placehold.jp/00c800/ffffff/300x240.png?text=%E6%9C%8D%E8%A3%85">
-            <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-                <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Tシャツを準備しよう</h1>
-                <p class="leading-relaxed">推しアーティストのTシャツがあれば着て参加しよう。当日購入することも出来ます。</p>
-            </div>
-            </div>
-        </div>
-        <div class="lg:w-1/3 sm:w-1/2 p-4">
-            <div class="flex relative">
-            <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://placehold.jp/00c800/ffffff/300x240.png?text=%E6%B0%B4%E5%88%86%E8%A3%9C%E7%B5%A6">
-            <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-                <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">水分補給をしよう</h1>
-                <p class="leading-relaxed">スポーツ飲料水は必需品。適宜水分補給をして熱中症にならないよう気をつけよう</p>
-            </div>
-            </div>
-        </div>
-        <div class="lg:w-1/3 sm:w-1/2 p-4">
-            <div class="flex relative">
-            <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://placehold.jp/00c800/ffffff/300x240.png?text=%E4%BA%88%E7%BF%92">
-            <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-                <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">予習</h1>
-                <p class="leading-relaxed">気になるアーティストを見つけたらおすすめ曲を聴いてみよう.</p>
-            </div>
-            </div>
-        </div>
-        <div class="lg:w-1/3 sm:w-1/2 p-4">
-            <div class="flex relative">
-            <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://placehold.jp/00c800/ffffff/300x240.png?text=%E3%82%BF%E3%82%A4%E3%83%A0%0A%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB">
-            <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-                <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">タイムスケジュール</h1>
-                <p class="leading-relaxed">好きなアーティストの組み合わせでタイムテーブルを組んでみよう</p>
-            </div>
-            </div>
-        </div>
-        <div class="lg:w-1/3 sm:w-1/2 p-4">
-            <div class="flex relative">
-            <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://placehold.jp/00c800/ffffff/300x240.png?text=%E3%82%B0%E3%83%AB%E3%83%A1">
-            <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-                <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">グルメを楽しもう</h1>
-                <p class="leading-relaxed">屋台が大集合。食べ過ぎ注意。</p>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    </section>
     </div>
   </div>
 </div>
+
+
