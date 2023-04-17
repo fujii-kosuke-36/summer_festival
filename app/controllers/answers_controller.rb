@@ -31,11 +31,9 @@
     
     def destroy
       @answer = Answer.find(params[:id])
-      if @answer.destroy
-        redirect_to artist_answers_path, notice: "削除しました"
-      else
-        render :edit
-      end
+      @answer.destroy
+      flash[:notice] = "削除しました" 
+      redirect_to artist_answers_path(@answer.artist)
     end
     
     private

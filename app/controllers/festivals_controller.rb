@@ -1,6 +1,7 @@
 class FestivalsController < ApplicationController
   def index
-    @festivals = Festival.all
+    @q = Festival.ransack(params[:q])
+    @festivals = @q.result(distinct: true).order(created_at: :asc).page(params[:page])
     
   end
   
