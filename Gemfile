@@ -44,6 +44,15 @@ gem 'ransack'
 # scraping
 gem 'mechanize'
 
+# seed
+gem 'seed-fu'
+
+#Pagenation
+gem 'kaminari'
+
+#calendar
+gem "simple_calendar", "~> 2.4"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

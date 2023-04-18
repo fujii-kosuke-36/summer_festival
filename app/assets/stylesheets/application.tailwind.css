@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+/* Simple Calendar */
+    .day {
+    }
+    .wday-0 a {
+    }
+    .wday-1 {
+    }
+    .wday-2 {
+    }
+    .wday-3 {
+    }
+    .wday-4 {
+    }
+    .wday-5 {
+    }
+    .wday-6 {
+    }
+
+    .today {
+    }
+    .past {
+    }
+    .future {
+    }
+
+    .start-date {
+    }
+
+    .prev-month {
+    @apply bg-stone-300;
+    }
+    .next-month {
+    @apply bg-yellow-300;
+    }
+    .current-month {
+    @apply font-bold ;
+    }
+
+    .has-events {
+    @apply cursor-pointer hover:bg-yellow-100 active:bg-yellow-200;
+    }
+}
+  

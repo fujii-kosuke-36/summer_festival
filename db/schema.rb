@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_05_141231) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_25_003950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "answer", null: false
+    t.bigint "user_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_answers_on_artist_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string "artist_name"
+    t.string "artist_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "festivals", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "location", null: false
+    t.string "prefecture", null: false
+    t.string "region", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -31,5 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_141231) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "answers", "artists"
+  add_foreign_key "answers", "users"
   add_foreign_key "posts", "users"
 end

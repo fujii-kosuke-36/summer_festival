@@ -1,0 +1,13 @@
+<%# my_answerが存在しないとき解答ボタンを表示する %>
+<%# my_answerが存在する時解答を更新するボタンを表示する %>
+<%# 条件分岐をする %>
+<% if !my_answer.present? %>
+    <%= link_to "この曲にする", artist_answers_path(artist, answer: "#{song.id}"), data: { turbo_method: :post },
+        class: "border border-2 rounded m-4 px-2 py-3 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 rounded-full font-bold self-center text-center" %>
+<% end %>
+<%# 自分の回答が既に存在している場合変更できるようにする %>
+<% if my_answer.present? %>
+    <%= link_to "この曲に変更する", artist_answers_path(artist, answer: { song_id: song.id }), data: { turbo_method: :patch },
+        class: "border border-2 rounded m-4 px-2 py-3 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 rounded-full font-bold self-center text-center" %>
+<% end %>
+

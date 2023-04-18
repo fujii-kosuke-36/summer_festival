@@ -1,0 +1,30 @@
+<div class="flex flex-col flex-wrap items-center mt-4">
+    <%= image_tag @artist.artist_image, {class:"w-4/5 md:w-3/5 lg:w-3/10 xl:w-4/12 2xl:w-1/4 mb-2 2xl:mb-5"} if @artist.artist_image %>
+    <h2 class="text-xl md:text-2xl font-semibold"><%= @artist.artist_name %></h2>
+    <div class="flex justify-center mx-auto w-4/5 md:w-3/5 lg:w-1/3 2xl:w-1/5 mt-6 2xl:mt-8">
+    <%= link_to "おすすめ曲を投稿する", new_artist_answer_path(@artist), class:"relative rounded px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300"%>
+    </div>   
+</div>
+
+<div class="flex justify-center">
+  <div class="text-center">
+    <h2 class="text-2xl font-bold mb-4">とりあえずこれ！</h2>
+    <h3 class="text-light"><%= @track.name %></h3>
+    <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= @track.id %>?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <% @answers.each do |answer| %>
+    <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+      <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= answer.answer %>?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <h3 class="text-2xl font-bold text-center mb-4"><%= answer.user.name %></h3>
+      <div class="flex justify-center mt-6">
+        <% if answer.user == current_user %>
+        <%= button_to "削除", artist_answer_path(@artist,answer), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>  
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
