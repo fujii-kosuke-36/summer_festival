@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   resources :artists do
     resources :answers, only: %i[new create update destroy]
   end  
-  resources :bookmarks, only: %i[create destroy]
+  resources :bookmarks, only: %i[index create destroy]
 end
