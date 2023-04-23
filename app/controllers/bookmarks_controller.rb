@@ -1,4 +1,9 @@
 class BookmarksController < ApplicationController
+
+  def index
+    @answers = current_user.bookmarked_answers
+  end
+
   def create
     @answer = Answer.find(params[:answer_id])
     current_user.bookmark(@answer)
