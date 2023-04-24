@@ -4,15 +4,9 @@
       <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= answer.answer %>?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipanswer-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <h3 class="text-2xl font-bold text-center mb-4"><%= answer.user.name %></h3>
       <div class="flex justify-center mt-6">
-          <% if current_user.bookmark?(answer) %>           
-           <%= render 'bookmarks/bookmark_button', answer: answer %>
-          <% else %>
-            ☆
-            <span id="js-bookmark-count-for-answer-<%= answer.id %>">
-              <%= answer.bookmarks.count %>
-            </span>
-        <% end %>
-    </div>
+        <%= render 'bookmarks/bookmark_button', answer: answer %>
+        <span id="js-bookmark-count-for-answer-<%= answer.id %>"></span>
+      </div>
     </div>
   <% end %>
 </div>
