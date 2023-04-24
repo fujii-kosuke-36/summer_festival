@@ -1,0 +1,5 @@
+<% if current_user.bookmark?(answer) %>
+  <%= render 'bookmarks/unbookmark', answer: answer %>
+<% else %>
+  <%= render 'bookmarks/bookmark', answer: answer %>
+<% end %>

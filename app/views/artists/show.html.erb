@@ -6,23 +6,26 @@
     </div>   
 </div>
 
-<div class="flex justify-center">
-  <div class="text-center">
-    <h2 class="text-2xl font-bold mt-6 mb-4">迷ったときの1曲</h2>
-    <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= @track.id %>?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
   <% @answers.each do |answer| %>
     <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-      <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= answer.answer %>?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%= answer.answer %>?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipanswer-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <h3 class="text-2xl font-bold text-center mb-4"><%= answer.user.name %></h3>
       <div class="flex justify-center mt-6">
         <% if answer.user == current_user %>
-        <%= button_to "削除", artist_answer_path(@artist,answer), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>  
-        <% end %>
-      </div>
+          <%= button_to "削除", artist_answer_path(@artist,answer), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+        <% else %>
+                     
+           <%= render 'bookmarks/bookmark_button', answer: answer %>
+                   
+            
+            <span id="js-bookmark-count-for-answer-<%= answer.id %>">
+             
+            </span>
+        
+      <% end %>
+    </div>
     </div>
   <% end %>
 </div>
