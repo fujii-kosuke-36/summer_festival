@@ -1,0 +1,12 @@
+<turbo-frame id="bookmark-button-<%= answer.id %>">
+  <%= button_to bookmarks_path(answer_id: answer.id),
+        id: "js-bookmark-button-for-answer-#{answer.id}",
+        method: :post,
+        remote: true,
+        data: { type: :script } do %>
+        ☆
+    <span id="js-bookmark-count-for-answer-<%= answer.id %>">
+      <%= answer.bookmarks.count %>
+    </span>
+  <% end %>
+</turbo-frame>
