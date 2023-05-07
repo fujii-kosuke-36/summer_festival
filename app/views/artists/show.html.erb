@@ -6,7 +6,6 @@
     </div>   
 </div>
 
-
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
   <% @answers.each do |answer| %>
     <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
@@ -15,15 +14,10 @@
       <div class="flex justify-center mt-6">
         <% if answer.user == current_user %>
           <%= button_to "削除", artist_answer_path(@artist,answer), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
-        <% else %>
-                     
-           <%= render 'bookmarks/bookmark_button', answer: answer %>
-                   
-            
-            <span id="js-bookmark-count-for-answer-<%= answer.id %>">
-             
-            </span>
-        
+        <% else %>                     
+           <%= render 'bookmarks/bookmark_button', answer: answer %>                             
+            <span id="js-bookmark-count-for-answer-<%= answer.id %>">            
+            </span>       
       <% end %>
     </div>
     </div>
