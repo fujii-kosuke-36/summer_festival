@@ -1,8 +1,8 @@
 <%= search_form_for q, url: festivals_path, html: {class: "flex justify-center"} do |f| %>
   <div class="flex">
-    <%= f.text_field :name_cont, class: "border p-2 mr-2", placeholder: '投稿', id: 'search_field_of_post' %>
-    <%= f.text_field :prefecture_cont, class: "border p-2 mr-2", placeholder: 'コメント', id: 'search_field_of_comment' %>
-    <%= f.text_field :region_cont, class: "border p-2 mr-2", placeholder: 'ユーザー', id: 'search_field_of_user' %>
+    <%= f.text_field :name_cont, class: "border p-2 mr-2", placeholder: 'フェス名', id: 'search_field_of_post' %>
+    <%= f.text_field :prefecture_cont, class: "border p-2 mr-2", placeholder: '都道府県', id: 'search_field_of_comment' %>
+    <%= f.text_field :region_cont, class: "border p-2 mr-2", placeholder: '地方', id: 'search_field_of_user' %>
     <%= f.submit 'Search', class: "border p-2 bg-green-500 text-white hover:bg-green-600" %>
   </div>
 <% end %>
