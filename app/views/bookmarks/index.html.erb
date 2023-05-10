@@ -10,3 +10,10 @@
     </div>
   <% end %>
 </div>
+
+<%# ブックマークがない時アーティスト一覧に戻る %>
+<% if @bookmarks.blank? %>
+  <div class="flex justify-center mt-6">
+    <%= link_to "アーティスト一覧に戻る", artists_path, class: "btn btn-primary" %>
+  </div>
+<% end %>
