@@ -55,6 +55,9 @@ gem "simple_calendar", "~> 2.4"
 
 gem "font-awesome-sass", "~> 6.4.0"
 
+#日本語化
+gem 'rails-i18n'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
