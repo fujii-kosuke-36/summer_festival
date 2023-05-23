@@ -1,17 +1,31 @@
-<div class="container mx-auto">
-  <div class="card lg:card-side bg-base-100 shadow-xl w-full lg:w-1/3">
-    <div class="card-body">
-      <h1>フェス名</h1>
-      <p class="text-lg font-bold mb-4"><%= @festival.name %></p>
-      <h1>場所</h1>
-      <p class="text-gray-700 mb-4"><%= @festival.location %></p>
-      <h1>都道府県</h1>
-      <p class="text-gray-700 mb-4"><%= @festival.prefecture%></p>
-      <div class="card-actions justify-end">
-        <%= link_to '戻る', festivals_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<div class='flex flex-wrap justify-center'>
+  <% if @festival.id == 10 %>
+    <h2>アーティスト一覧</h2>
+    <% @artists.each do |artist| %>
+      <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+        <%= link_to image_tag(artist.artist_image, class: 'rounded-t-lg mb-4'), artist_path(artist) %>
+        <h3 class="text-2xl font-bold text-center mb-4"><%= artist.artist_name %></h3>
+        <!-- アーティストの追加情報や他の表示内容 -->
+      </div>
+    <% end %>
+  <% else %>
+    <div class="container mx-auto">
+      <div class="card lg:card-side bg-base-100 shadow-xl w-full lg:w-1/3">
+        <div class="card-body">
+          <h1>フェス名</h1>
+          <p class="text-lg font-bold mb-4"><%= @festival.name %></p>
+          <h1>場所</h1>
+          <p class="text-gray-700 mb-4"><%= @festival.location %></p>
+          <h1>都道府県</h1>
+          <p class="text-gray-700 mb-4"><%= @festival.prefecture%></p>
+          <div class="card-actions justify-end">
+            <%= link_to '戻る', festivals_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
+
 
 

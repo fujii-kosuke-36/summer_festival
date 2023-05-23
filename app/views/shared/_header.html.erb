@@ -1,13 +1,13 @@
-<nav class="bg-gray-800">
+<nav class="bg-emerald-300">
   <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
       <div class="flex items-center">
         <ul class="flex items-baseline space-x-4">
-          <li><%= link_to "野外フェスター" , root_path, class: 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-2xl font-medium' %></li>
-          <li><%= link_to "お気に入りリスト" , bookmarks_path, class: 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-2xl font-medium' %></li>
+          <li><%= link_to "Fest-Hunt" , root_path, class: 'text-white hover:text-white px-3 py-2 rounded-md text-2xl font-medium' %></li>
+          <li><%= link_to "お気に入りリスト" , bookmarks_path, class: 'text-white hover:text-white px-3 py-2 rounded-md text-2xl font-medium' %></li>
         </ul>
         <div class="hidden md:block ml-auto">
           <div class="flex items-baseline space-x-4">
-            <a><%= link_to 'ログアウト', logout_path, class: 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-md font-medium', data: { turbo_method: :delete } %></a>
+            <a><%= link_to 'ログアウト', logout_path, class: 'text-white hover:text-white px-3 py-2 rounded-md text-md font-medium', data: { turbo_method: :delete } %></a>
           </div>
         </div>
       </div>
