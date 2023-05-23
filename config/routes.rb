@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   post '/guest_login', to: 'user_sessions#guest_login'
-  get '/guest_login', to: 'user_sessions#guest_login'
+  
 
   resources :recommendations, only: %i[index]
   resources :festivals
