@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     private
     def not_authenticated
         redirect_to login_path, info: 'ログインしてください'
-    end     
+    end
 end
 
 

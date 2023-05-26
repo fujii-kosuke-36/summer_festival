@@ -25,6 +25,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to login_path, status: :see_other 
+    redirect_to login_path, status: :see_other
   end
 end

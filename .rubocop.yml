@@ -11,6 +11,9 @@ AllCops:
     - db/schema.rb
     - vendor/bundle/**/*
     - node_modules/**/*
+    - 'config/**/*'
+    - 'Gemfile'
+    - 'bin/**/*'
 
 Bundler/OrderedGems:
   Enabled: true

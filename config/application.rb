@@ -30,7 +30,7 @@ module SummerFestival
       g.skip_routes true
       g.assets false
       g.helper false
-      g.test_framework :rspec, 
+      g.test_framework :rspec,
         fixtures: false,
         routing_specs: false,
         view_specs: false,

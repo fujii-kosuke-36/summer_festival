@@ -1,5 +1,4 @@
 class Answer < ApplicationRecord
-    
     belongs_to :user
     belongs_to :artist
     has_many :bookmarks, dependent: :destroy

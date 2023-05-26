@@ -9,7 +9,7 @@
         end
       end
     end
-    
+
     def create
       @answer = current_user.answers.build(answer_params)
       @answer.user_id = current_user.id
@@ -28,14 +28,14 @@
     def edit
       @answer = Answer.find(params[:id])
     end
-    
+
     def destroy
       @answer = Answer.find(params[:id])
       @answer.destroy
-      flash[:notice] = "削除しました" 
+      flash[:notice] = "削除しました"
       redirect_to artist_answers_path(@answer.artist)
     end
-    
+
     private
     def answer_params
       params.permit(:answer).merge(artist_id: params[:artist_id])
