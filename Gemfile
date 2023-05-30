@@ -58,6 +58,9 @@ gem "font-awesome-sass", "~> 6.4.0"
 #日本語化
 gem 'rails-i18n'
 
+# SEO
+gem 'meta-tags'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
