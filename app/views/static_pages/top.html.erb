@@ -1,17 +1,15 @@
-<div class="h-screen bg-cover" style="background-image: url(<%= asset_path "ocean.jpg" %>);">
-  <div class="flex h-full w-full items-center justify-center container mt-auto mx-auto px-8">
-    <div class="top-wrapper">
-        <div class="text-white">
-          <div class="top-message flex items-center justify-center text-center mx-2 sm:mx-10 mt-5 sm:mt-8 text-2xl sm:text-3xl md:text-4xl leading-normal md:leading-relaxed">
-            <b><h1>Fest-Huntは野外フェスに参加する人を支援するサービスです</h1></b>
-          </div>
-          <p class="top-message flex items-center justify-center text-center mx-6 sm:mx-10 mt-52 sm:mt-20 text-sm sm:text-lg font-semibold">LISTをクリックしてお気に入りの曲を見つけましょう</p>
-        </div>
-        <div class="flex justify-center mt-10 pr-40">
-          <%= link_to 'Artist List', artists_path, class: 'px-6 py-4 mr-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
-          <%= link_to 'Festival List', festivals_path, class: 'px-4 py-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
-          <%= link_to 'Recommendations List', recommendations_path, class: 'px-4 py-4 ml-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
-        </div>
+<div class="bg-cover" style="background-image: url(<%= asset_path 'ocean.jpg' %>);">
+  <div class="flex flex-col h-screen items-center justify-center px-8 mx-auto mt-auto">
+    <div class="text-white text-center">
+      <div class="top-message mx-2 sm:mx-10 mt-5 sm:mt-8 text-2xl sm:text-3xl md:text-4xl leading-normal md:leading-relaxed">
+        <h1 class="text-3xl sm:text-4xl"><strong>Fest-Huntは野外フェスに参加する人を支援するサービスです</strong></h1>
+      </div>
+      <p class="top-message mx-6 sm:mx-10 mt-8 sm:mt-16 text-sm sm:text-lg font-semibold">LISTをクリックしてお気に入りの曲を見つけましょう</p>
+    </div>
+    <div class="flex flex-col items-center mt-10">
+      <%= link_to 'Artist List', artists_path, class: 'px-6 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
+      <%= link_to 'Festival List', festivals_path, class: 'px-4 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
+      <%= link_to 'Recommendations List', recommendations_path, class: 'px-4 py-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
     </div>
   </div>
 </div>

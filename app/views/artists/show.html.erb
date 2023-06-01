@@ -24,3 +24,25 @@
   <% end %>
 </div>
 
+<h2 class="text-lg font-bold">類似したアーティスト</h2>
+
+<% if @recommended_artists.any? %>
+  <div class="mt-8 grid grid-cols-3 gap-8">
+    <% @recommended_artists.each do |recommended_artist| %>
+      <div class="flex flex-col items-center">
+        <% if recommended_artist.images.any? %>
+          <% image_url = recommended_artist.images.first['url'] %>
+          <%= image_tag(image_url, alt: recommended_artist.name, class: 'w-48 h-48 object-cover rounded-md') %>
+        <% else %>
+          <p class="text-center">画像はありません。</p>
+        <% end %>
+        <p class="text-center mt-2"><%= recommended_artist.name %></p>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>おすすめアーティストはありません。</p>
+<% end %>
+
+
+
