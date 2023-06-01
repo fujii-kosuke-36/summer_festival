@@ -68,12 +68,22 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    ast (2.4.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
+    capybara (3.39.1)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     coderay (1.1.3)
     concurrent-ruby (1.2.0)
     connection_pool (2.3.0)
@@ -84,6 +94,7 @@ GEM
     debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -91,6 +102,11 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -113,6 +129,7 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
+    json (2.6.3)
     jwt (2.7.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -135,6 +152,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    matrix (0.4.2)
     mechanize (2.8.5)
       addressable (~> 2.8)
       domain_name (~> 0.5, >= 0.5.20190701)
@@ -146,6 +164,8 @@ GEM
       rubyntlm (~> 0.6, >= 0.6.3)
       webrick (~> 1.7)
       webrobots (~> 0.1.2)
+    meta-tags (2.18.0)
+      actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
@@ -187,6 +207,9 @@ GEM
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
+    parallel (1.23.0)
+    parser (3.2.2.1)
+      ast (~> 2.4.1)
     pg (1.4.5)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -232,28 +255,73 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
+    rainbow (3.1.1)
     rake (13.0.6)
     ransack (4.0.0)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
+    regexp_parser (2.8.0)
     reline (0.3.2)
       io-console (~> 0.5)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rexml (3.2.5)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.2)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.0)
     rspotify (2.11.1)
       addressable (~> 2.8.0)
       omniauth-oauth2 (>= 1.6)
       rest-client (~> 2.0.2)
+    rubocop (1.51.0)
+      json (~> 2.3)
+      parallel (~> 1.10)
+      parser (>= 3.2.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.28.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.28.1)
+      parser (>= 3.2.1.0)
+    rubocop-performance (1.18.0)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.19.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyntlm (0.6.3)
+    rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
     seed-fu (2.3.9)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
+    selenium-webdriver (4.9.1)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     simple_calendar (2.4.3)
       rails (>= 3.0)
     snaky_hash (2.0.1)
@@ -283,17 +351,25 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    unicode-display_width (2.4.2)
     version_gem (1.1.1)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webdrivers (5.2.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (~> 4.0)
     webrick (1.8.1)
     webrobots (0.1.2)
+    websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     zeitwerk (2.6.7)
 
 PLATFORMS
@@ -301,21 +377,28 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  capybara
   cssbundling-rails
   debug
   dotenv-rails
+  factory_bot_rails
   font-awesome-sass (~> 6.4.0)
   jbuilder
   jsbundling-rails
   kaminari
   mechanize
+  meta-tags
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
   ransack
+  rspec-rails
   rspotify
+  rubocop
+  rubocop-performance
+  rubocop-rails
   seed-fu
   simple_calendar (~> 2.4)
   sorcery
@@ -324,6 +407,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  webdrivers
 
 RUBY VERSION
    ruby 3.1.2p20

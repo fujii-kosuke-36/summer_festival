@@ -1,6 +1,6 @@
+<h2 class="text-center">アーティスト一覧</h2>
 <div class='flex flex-wrap justify-center'>
   <% if @festival.id == 10 %>
-    <h2>アーティスト一覧</h2>
     <% @artists.each do |artist| %>
       <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
         <%= link_to image_tag(artist.artist_image, class: 'rounded-t-lg mb-4'), artist_path(artist) %>
