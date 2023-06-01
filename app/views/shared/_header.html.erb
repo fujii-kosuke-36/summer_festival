@@ -7,7 +7,7 @@
         </ul>
         <div class="hidden md:block ml-auto">
           <div class="flex items-baseline space-x-4">
-            <a><%= link_to 'ログアウト', logout_path, class: 'text-white hover:text-white px-3 py-2 rounded-md text-md font-medium', data: { turbo_method: :delete } %></a>
+            <a><%= link_to (t 'defaults.logout'), logout_path, class: 'text-white hover:text-white px-3 py-2 rounded-md text-md font-medium', data: { turbo_method: :delete } %></a>
           </div>
         </div>
       </div>
