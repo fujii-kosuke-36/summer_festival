@@ -75,6 +75,15 @@ GEM
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
+    capybara (3.39.1)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     coderay (1.1.3)
     concurrent-ruby (1.2.0)
     connection_pool (2.3.0)
@@ -85,6 +94,7 @@ GEM
     debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -92,6 +102,11 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -137,6 +152,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    matrix (0.4.2)
     mechanize (2.8.5)
       addressable (~> 2.8)
       domain_name (~> 0.5, >= 0.5.20190701)
@@ -253,6 +269,23 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.2)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.0)
     rspotify (2.11.1)
       addressable (~> 2.8.0)
       omniauth-oauth2 (>= 1.6)
@@ -279,11 +312,16 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyntlm (0.6.3)
+    rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
     seed-fu (2.3.9)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
+    selenium-webdriver (4.9.1)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     simple_calendar (2.4.3)
       rails (>= 3.0)
     snaky_hash (2.0.1)
@@ -320,11 +358,18 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webdrivers (5.2.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (~> 4.0)
     webrick (1.8.1)
     webrobots (0.1.2)
+    websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     zeitwerk (2.6.7)
 
 PLATFORMS
@@ -332,9 +377,11 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  capybara
   cssbundling-rails
   debug
   dotenv-rails
+  factory_bot_rails
   font-awesome-sass (~> 6.4.0)
   jbuilder
   jsbundling-rails
@@ -347,6 +394,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
   ransack
+  rspec-rails
   rspotify
   rubocop
   rubocop-performance
@@ -359,6 +407,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  webdrivers
 
 RUBY VERSION
    ruby 3.1.2p20
