@@ -4,13 +4,44 @@
       <div class="top-message mx-2 sm:mx-10 mt-5 sm:mt-8 text-2xl sm:text-3xl md:text-4xl leading-normal md:leading-relaxed">
         <h1 class="text-3xl sm:text-4xl"><strong>Fest-Huntは野外フェスに参加する人を支援するサービスです</strong></h1>
       </div>
-      <p class="top-message mx-6 sm:mx-10 mt-8 sm:mt-16 text-sm sm:text-lg font-semibold">LISTをクリックしてお気に入りの曲を見つけましょう</p>
+      <p class="top-message mx-6 sm:mx-10 mt-8 sm:mt-16 text-sm sm:text-lg font-semibold">一覧をクリックしてお気に入りの曲を見つけましょう</p>
     </div>
     <div class="flex flex-col items-center mt-10">
-      <%= link_to 'Artist List', artists_path, class: 'px-6 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
-      <%= link_to 'Festival List', festivals_path, class: 'px-4 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
-      <%= link_to 'Recommendations List', recommendations_path, class: 'px-4 py-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
+      <%= link_to 'アーティスト一覧', artists_path, class: 'px-6 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
+      <%= link_to 'フェス一覧', festivals_path, class: 'px-4 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
+      <%= link_to 'おすすめ曲一覧', recommendations_path, class: 'px-4 py-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
     </div>
   </div>
 </div>
 
+<div class="flex flex-wrap justify-center items-center">
+  <div class="card w-full sm:w-96 bg-base-100 shadow-xl mx-4 my-4">
+    <figure class="px-10 pt-10">
+      <%= image_tag 'ogp.png', class:"max-w-sm rounded-lg shadow-2xl" %>
+    </figure>
+    <div class="card-body items-center text-center">
+      <h2 class="card-title">使い方1</h2>
+      <p>アーティスト一覧をクリックするとROCK IN JAPANに出演したアーティストが表示されます。
+      アーティストの画像をクリックするとユーザーが投稿したおすすめ曲が表示されます。</p>
+    </div>
+  </div>
+  <div class="card w-full sm:w-96 bg-base-100 shadow-xl mx-4 my-4">
+    <figure class="px-10 pt-10">
+      <%= image_tag 'ogp.png', class:"max-w-sm rounded-lg shadow-2xl" %>
+    </figure>
+    <div class="card-body items-center text-center">
+      <h2 class="card-title">使い方2</h2>
+      <p>おすすめしたい曲がある場合、おすすめ曲を投稿するボタンより曲を検索します。
+          曲名でヒットしない場合、アーティスト名で検索してください。</p>
+    </div>
+  </div>
+  <div class="card w-full sm:w-96 bg-base-100 shadow-xl mx-4 my-4">
+    <figure class="px-10 pt-10">
+      <%= image_tag 'ogp.png', class:"max-w-sm rounded-lg shadow-2xl" %>
+    </figure>
+    <div class="card-body items-center text-center">
+      <h2 class="card-title">使い方3</h2>
+      <p>お気に入りの曲を見つけた場合、ブックマークしてオリジナルのプレイリストを作成しましょう</p>
+    </div>
+  </div>
+</div>
