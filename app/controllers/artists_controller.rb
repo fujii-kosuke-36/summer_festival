@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
-  before_action :require_login, except: [:index]
+  before_action :require_login, only: :show
+
   def index
     @q = Artist.ransack(params[:q])
     @artists = @q.result(distinct: true).order(created_at: :asc).page(params[:page])
@@ -8,7 +9,6 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     @answers = @artist.answers.includes(:user).order(created_at: :desc)
-    @recommended_artists = @artist.generate_recommendations
   end
 
   def create
