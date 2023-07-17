@@ -1,0 +1,28 @@
+<h1>Festivals</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Region</th>
+      <th>Prefecture</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @festivals.each do |festival| %>
+      <tr>
+        <td><%= festival.name %></td>
+        <td><%= festival.location %></td>
+        <td><%= festival.region %></td>
+        <td><%= festival.prefecture %></td>
+        <td>
+          <%= link_to "Edit", edit_festival_path(festival) %>
+          <%= link_to "Delete", festival_path(festival), method: :delete, data: { confirm: "Are you sure you want to delete this festival?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

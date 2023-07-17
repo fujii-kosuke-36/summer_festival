@@ -1,0 +1,26 @@
+<h1 class="text-2xl font-bold mb-4">New Festival</h1>
+
+<%= form_with(model: [:admin, @festival], url: admin_festivals_path, local: true) do |form| %>
+  <div class="mb-4">
+    <%= form.label :name, class: "block font-bold" %>
+    <%= form.text_field :name, class: "form-input" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :location, class: "block font-bold" %>
+    <%= form.text_field :location, class: "form-input" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :prefecture, class: "block font-bold" %>
+    <%= form.text_field :prefecture, class: "form-input" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :region, class: "block font-bold" %>
+    <%= form.text_field :region, class: "form-input" %>
+  </div>
+
+  <%= form.submit "Create Festival", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<% end %>
+
