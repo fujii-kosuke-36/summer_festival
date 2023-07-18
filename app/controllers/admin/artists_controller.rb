@@ -11,14 +11,8 @@ class Admin::ArtistsController < Admin::BaseController
     
     def create
         @artist = Artist.new(artist_params)
-        respond_to do |format|
-          if @artist.save
-            format.html { redirect_to admin_artists_path, notice: 'Artist was successfully created.' }
-            format.json { render :show, status: :created, location: @artist }
-          else
-            format.html { render :new }
-            format.json { render json: @artist.errors, status: :unprocessable_entity }
-          end
+        if @artist.save
+          redirect_to admin_artists_path
         end
     end
 
