@@ -1,20 +1,25 @@
 class Admin::ArtistsController < Admin::BaseController
+    
     def index
         @artists = Artist.all
     end
 
-    def new
-        @artist = Artist.new
+    def show
+        @artist= Artist.find(params[:id])
+        @recommended_artists = RSpotify::Recommendations.generate(seed_artists: [@artist.spotify_id])
     end
     
     def create
-    @artist = Artist.new(artist_params)
-    if @artist.save
-        redirect_to admin_artist_path(@artist), notice: 'アーティストが追加されました。'
-    else
-        flash.now[:error] = 'アーティストの追加に失敗しました。'
-        render :new
-    end
+        @artist = Artist.new(artist_params)
+        respond_to do |format|
+          if @artist.save
+            format.html { redirect_to admin_artists_path, notice: 'Artist was successfully created.' }
+            format.json { render :show, status: :created, location: @artist }
+          else
+            format.html { render :new }
+            format.json { render json: @artist.errors, status: :unprocessable_entity }
+          end
+        end
     end
 
     def search
@@ -26,7 +31,7 @@ class Admin::ArtistsController < Admin::BaseController
     private
   
     def artist_params
-      params.require(:artist).permit(:artist_name, :artist_image)
+        params.permit(:spotify_id, :artist_name, :artist_image)
     end
   end
   

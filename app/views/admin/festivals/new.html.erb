@@ -21,6 +21,17 @@
     <%= form.text_field :region, class: "form-input" %>
   </div>
 
-  <%= form.submit "Create Festival", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<div class="mb-4">
+  <%= form.label :artists, class: "block font-bold" %>
+  <% Artist.all.each do |artist| %>
+    <div>
+      <%= check_box_tag "festival[artist_ids][]", artist.id, @festival.artist_ids.include?(artist.id), class: "form-checkbox-multiselect" %>
+      <%= label_tag "festival[artist_ids][]", artist.artist_name %>
+    </div>
+  <% end %>
+</div>
+
+<%= form.submit "Create Festival", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 <% end %>
+
 

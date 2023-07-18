@@ -17,8 +17,8 @@
         <td><%= festival.region %></td>
         <td><%= festival.prefecture %></td>
         <td>
-          <%= link_to "Edit", edit_festival_path(festival) %>
-          <%= link_to "Delete", festival_path(festival), method: :delete, data: { confirm: "Are you sure you want to delete this festival?" } %>
+            <%= link_to "Edit", edit_admin_festival_path(festival) %>
+            <%= link_to "Delete", admin_festival_path(festival), method: :delete, data: { confirm: "Are you sure you want to delete this festival?" } %>
         </td>
       </tr>
     <% end %>

@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
 
-    resources :artists
+    resources :artists do
+      collection do
+        get 'search'
+      end
+    end
+  
     resources :festivals
   end
 end

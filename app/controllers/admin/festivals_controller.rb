@@ -37,7 +37,7 @@ class Admin::FestivalsController < Admin::BaseController
     private
   
     def festival_params
-      params.require(:festival).permit(:name, :prefecture, :location, :region)
+        params.require(:festival).permit(:name, :prefecture, :location, :region, { :artist_ids => [] })
     end
 
     def set_festival
