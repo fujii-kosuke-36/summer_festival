@@ -1,0 +1,17 @@
+# app/views/admin/festivals/show.html.erb
+<h1><%= @festival.name %>の詳細</h1>
+
+<p>開催場所: <%= @festival.location %></p>
+<p>都道府県: <%= @festival.prefecture %></p>
+<p>地域: <%= @festival.region %></p>
+
+<h2>出演アーティスト</h2>
+<% if @artists.any? %>
+  <ul>
+    <% @artists.each do |artist| %>
+      <li><%= artist.artist_name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>出演アーティストはありません。</p>
+<% end %>
