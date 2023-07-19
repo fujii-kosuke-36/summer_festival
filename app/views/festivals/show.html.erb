@@ -1,31 +1,27 @@
-<h2 class="text-center">アーティスト一覧</h2>
-<div class='flex flex-wrap justify-center'>
-  <% if @festival.id == 10 %>
-    <% @artists.each do |artist| %>
-      <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-        <%= link_to image_tag(artist.artist_image, class: 'rounded-t-lg mb-4'), artist_path(artist) %>
-        <h3 class="text-2xl font-bold text-center mb-4"><%= artist.artist_name %></h3>
-        <!-- アーティストの追加情報や他の表示内容 -->
-      </div>
-    <% end %>
+<div class="p-4">
+  <h1 class="text-3xl font-bold mb-4"><%= @festival.name %>の詳細</h1>
+
+  <p class="mb-2"><span class="font-bold">開催場所:</span> <%= @festival.location %></p>
+  <p class="mb-2"><span class="font-bold">都道府県:</span> <%= @festival.prefecture %></p>
+  <p class="mb-4"><span class="font-bold">地域:</span> <%= @festival.region %></p>
+
+  <h2 class="text-2xl font-bold mb-2">出演アーティスト</h2>
+  <% if @festival.artists.any? %>
+    <ul class="flex flex-wrap gap-4">
+      <% @festival.artists.each do |artist| %>
+        <li class="flex items-center">
+          <% if artist.artist_image.present? %>
+            <%= link_to artist_path(artist) do %>
+              <%= image_tag(artist.artist_image, class: "w-12 h-12 rounded-full mr-2") %>
+            <% end %>
+          <% end %>
+          <%= link_to artist_path(artist), class: "text-blue-600 font-bold" do %>
+            <%= artist.artist_name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
   <% else %>
-    <div class="container mx-auto">
-      <div class="card lg:card-side bg-base-100 shadow-xl w-full lg:w-1/3">
-        <div class="card-body">
-          <h1>フェス名</h1>
-          <p class="text-lg font-bold mb-4"><%= @festival.name %></p>
-          <h1>場所</h1>
-          <p class="text-gray-700 mb-4"><%= @festival.location %></p>
-          <h1>都道府県</h1>
-          <p class="text-gray-700 mb-4"><%= @festival.prefecture%></p>
-          <div class="card-actions justify-end">
-            <%= link_to '戻る', festivals_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <p>出演アーティストはありません。</p>
   <% end %>
 </div>
-
-
-

@@ -9,21 +9,12 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   <% @festivals.each do |festival| %>
-    <% if festival.id == 10 %>
-      <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-        <%= link_to image_tag('anthony-delanoix-hzgs56Ze49s-unsplash.jpg', class: 'rounded-t-lg mb-4'), festival_path(festival) %>
-        <h3 class="text-2xl font-bold text-center mb-4"><%= festival.name %></h3>
-        <p class="text-gray-700 text-center"><%= festival.location %></p>
-        <div class="flex justify-center mt-6">
-          <%= link_to "詳細を見る", festival_path(festival), class: "btn btn-success" %>
-        </div>
-      </div>
-    <% elsif festival.id != 10 %>
-      <div style="display: none;"></div>
-    <% end %>
+    <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+      <%= link_to festival_path(festival) do %>
+        <%= image_tag('ogp.png', class: 'rounded-t-lg mb-4') %>
+      <% end %>
+      <h3 class="text-2xl font-bold text-center mb-4"><%= festival.name %></h3>
+      <!-- フェスの追加情報や他の表示内容 -->
+    </div>
   <% end %>
-  <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-    <h3 class="text-2xl font-bold text-center mb-4">準備中</h3>
-    <p class="text-gray-700 text-center">その他フェスは準備中です。</p>
-  </div>
 </div>
