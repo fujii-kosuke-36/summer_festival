@@ -1,5 +1,4 @@
 class Festival < ApplicationRecord
-  has_many :artists
   has_many :festival_artists
   has_many :artists, through: :festival_artists
 

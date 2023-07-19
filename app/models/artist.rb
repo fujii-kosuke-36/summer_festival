@@ -1,6 +1,5 @@
 class Artist < ApplicationRecord
     has_many :answers, dependent: :destroy
-    belongs_to :festival
     has_many :festival_artists
     has_many :festivals, through: :festival_artists
 
