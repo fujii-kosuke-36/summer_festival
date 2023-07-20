@@ -1,12 +1,12 @@
 class Admin::ArtistsController < Admin::BaseController
-    
+    before_action :set_artist, only: %i[show edit update destroy]
     def index
         @artists = Artist.all
     end
 
     def show
-        @artist= Artist.find(params[:id])
-        @recommended_artists = RSpotify::Recommendations.generate(seed_artists: [@artist.spotify_id])
+        @artist.fetch_spotify_data
+        #@recommended_artists = RSpotify::Recommendations.generate(seed_artists: [@artist.spotify_id])
     end
     
     def create
@@ -21,11 +21,30 @@ class Admin::ArtistsController < Admin::BaseController
           @artists = RSpotify::Artist.search(params[:search])
         end
     end
+
+    def edit
+        
+    end
+
+    def update
+        if @artist.update(artist_params)
+          flash[:success] = "アーティスト情報を更新しました"
+          redirect_to admin_artist_path(@artist)
+        else
+          flash[:danger] = "アーティスト情報の更新に失敗しました"
+          render :edit
+        end
+      end
+    
   
     private
   
     def artist_params
         params.permit(:spotify_id, :artist_name, :artist_image)
+    end
+
+    def set_artist
+        @artist = Artist.find(params[:id])
     end
   end
   

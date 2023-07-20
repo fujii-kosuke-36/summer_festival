@@ -1,16 +1,13 @@
-<div class="m-10 outline break-words p-5 rounded-md">
-  <%= @artist.spotify_id %><br>
-  <%= @artist.artist_name %><br>
-  <%= image_tag(@artist.artist_image,style: "width: 150px; height: 187px; display: inline-block;") %>
-</div>
+<div class="container mx-auto mt-10">
+  <div class="mb-4">
+    <span class="text-2xl font-bold">アーティスト名：</span>
+    <%= @artist.artist_name %>
+  </div>
 
-<div class="flex flex-wrap">
-  <% @recommended_artists.tracks.each do |track|%>
-    <div class="m-10 outline p-5 rounded-md w-54">
-      <p class="break-words"><%= track.name %></p><br>
-      <p><%= track.artists.first.name %></p><br>
-      <%= image_tag(track.album.images.first["url"],style: "width: 150px; height: 187px; display: inline-block;") %>
-      <iframe class="mb-2" style="border-radius:12px" src="https://open.spotify.com/embed/track/<%=track.id %>?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipanswer-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-  <% end %>
+  <div class="mb-4">
+    <span class="text-2xl font-bold">Spotify ID：</span>
+    <%= @artist.spotify_id %>
+  </div>
+
+  <%= link_to "編集", edit_admin_artist_path(@artist), class: "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" %>
 </div>

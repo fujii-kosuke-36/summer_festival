@@ -1,0 +1,32 @@
+<%= form_with model: @artist, url: admin_artist_path(@artist), method: :patch do |f| %>
+  <div class="mb-4">
+    <%= f.label :artist_name %>
+    <%= f.text_field :artist_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :spotify_id %>
+    <%= f.text_field :spotify_id, class: "form-control" %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :artist_image %>
+    <%= f.text_field :artist_image, class: "form-control" %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :current_image_preview %>
+    <% if @artist.artist_image.present? %>
+      <%= image_tag(@artist.artist_image, style: "width: 150px; height: 150px; display: inline-block;") %>
+    <% else %>
+      <p>No image uploaded yet.</p>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+
