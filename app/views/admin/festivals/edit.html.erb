@@ -1,0 +1,37 @@
+<div class="p-4">
+  <h1 class="text-3xl font-bold mb-4">フェスティバル編集</h1>
+
+  <%= form_with(model: @festival, url: admin_festival_path(@festival), method: :patch) do |f| %>
+    <div class="mb-4">
+      <%= f.label :name, class: "block font-bold" %>
+      <%= f.text_field :name, class: "w-full rounded-md border-gray-300" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :location, class: "block font-bold" %>
+      <%= f.text_field :location, class: "w-full rounded-md border-gray-300" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :prefecture, class: "block font-bold" %>
+      <%= f.text_field :prefecture, class: "w-full rounded-md border-gray-300" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :region, class: "block font-bold" %>
+      <%= f.text_field :region, class: "w-full rounded-md border-gray-300" %>
+    </div>
+
+    <h2 class="text-2xl font-bold mb-2">出演アーティスト</h2>
+    <% @artists.each do |artist| %>
+      <div class="flex items-center mb-2">
+        <%= check_box_tag "festival[artist_ids][]", artist.id, @festival.artists.include?(artist), id: "artist_#{artist.id}" %>
+        <%= label_tag "artist_#{artist.id}", artist.artist_name, class: "ml-2" %>
+      </div>
+    <% end %>
+
+    <div class="mt-4">
+      <%= f.submit "更新する", class: "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" %>
+    </div>
+  <% end %>
+</div>

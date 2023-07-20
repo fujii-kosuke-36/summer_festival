@@ -1,4 +1,5 @@
 class Admin::FestivalsController < Admin::BaseController
+    before_action :set_festival, only: %i[edit update show]
     def index
         @festivals = Festival.all
     end
@@ -19,14 +20,31 @@ class Admin::FestivalsController < Admin::BaseController
         end
     end
 
+    def edit
+        @artists = Artist.all
+    end
+    
+    def update
+    if @festival.update(festival_params)
+        flash[:success] = "フェスを更新しました"
+        redirect_to root_url
+    else
+        flash[:danger] = "フェスが更新できませんでした"
+        render :edit
+    end
+    end
+
     def show
-        @festival = Festival.find(params[:id])
         @artists = @festival.artists
-        end
+    end
     
     private
     
     def festival_params
         params.require(:festival).permit(:name, :location, :prefecture, :region, artist_ids: [])
     end
+
+    def set_festival
+        @festival = Festival.find(params[:id])
     end
+end

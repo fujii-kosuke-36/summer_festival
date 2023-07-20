@@ -1,17 +1,27 @@
-# app/views/admin/festivals/show.html.erb
-<h1><%= @festival.name %>の詳細</h1>
+<div class="p-4">
+  <h1 class="text-3xl font-bold mb-4"><%= @festival.name %>の詳細</h1>
 
-<p>開催場所: <%= @festival.location %></p>
-<p>都道府県: <%= @festival.prefecture %></p>
-<p>地域: <%= @festival.region %></p>
+  <p class="mb-2"><span class="font-bold">開催場所:</span> <%= @festival.location %></p>
+  <p class="mb-2"><span class="font-bold">都道府県:</span> <%= @festival.prefecture %></p>
+  <p class="mb-4"><span class="font-bold">地域:</span> <%= @festival.region %></p>
 
-<h2>出演アーティスト</h2>
-<% if @artists.any? %>
-  <ul>
-    <% @artists.each do |artist| %>
-      <li><%= artist.artist_name %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>出演アーティストはありません。</p>
-<% end %>
+  <h2 class="text-2xl font-bold mb-2">出演アーティスト</h2>
+  <% if @festival.artists.any? %>
+    <ul class="flex flex-wrap gap-4">
+      <% @festival.artists.each do |artist| %>
+        <li class="flex items-center">
+          <% if artist.artist_image.present? %>
+            <%= link_to artist_path(artist) do %>
+              <%= image_tag(artist.artist_image, class: "w-12 h-12 rounded-full mr-2") %>
+            <% end %>
+          <% end %>
+          <%= link_to artist_path(artist), class: "text-blue-600 font-bold" do %>
+            <%= artist.artist_name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>出演アーティストはありません。</p>
+  <% end %>
+</div>
