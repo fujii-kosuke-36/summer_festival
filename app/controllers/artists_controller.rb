@@ -6,10 +6,10 @@ class ArtistsController < ApplicationController
     @artists = @q.result(distinct: true).order(created_at: :asc).page(params[:page])
   end
 
-  def show       
+  def show
     @artist = Artist.includes(:festivals).find(params[:id])
     @festivals = @artist.festivals
-    
+
     @similar_artists = []
     if @artist.spotify_id.present?
       spotify_artist = RSpotify::Artist.find(@artist.spotify_id)
@@ -29,11 +29,11 @@ class ArtistsController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def artist_params
     params.require(:artist).permit(:artist_name, :artist_image)
   end
-  
+
 end

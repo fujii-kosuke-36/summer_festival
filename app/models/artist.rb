@@ -9,9 +9,9 @@ class Artist < ApplicationRecord
 
     def fetch_spotify_data
         return if spotify_id.present?
-    
+
         spotify_artist = RSpotify::Artist.search(artist_name).first
-    
+
         if spotify_artist
           self.spotify_id = spotify_artist.id
           save
@@ -20,5 +20,5 @@ class Artist < ApplicationRecord
         # Spotifyからアーティスト情報が見つからない場合の処理
         Rails.logger.error "Artist '#{artist_name}' not found on Spotify: #{e.message}"
     end
-    
+
 end
