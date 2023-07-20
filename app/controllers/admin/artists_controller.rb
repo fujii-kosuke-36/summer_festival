@@ -1,12 +1,19 @@
 class Admin::ArtistsController < Admin::BaseController
     before_action :set_artist, only: %i[show edit update destroy]
-    def index
+    def index 
         @artists = Artist.all
     end
 
     def show
         @artist.fetch_spotify_data
-        #@recommended_artists = RSpotify::Recommendations.generate(seed_artists: [@artist.spotify_id])
+        @similar_artists = []
+    
+        if @artist.spotify_id.present?
+        spotify_artist = RSpotify::Artist.find(@artist.spotify_id)
+        @similar_artists = spotify_artist.related_artists.map do |related_artist|
+            Artist.find_by(spotify_id: related_artist.id)
+        end.compact
+        end   
     end
     
     def create
@@ -22,8 +29,7 @@ class Admin::ArtistsController < Admin::BaseController
         end
     end
 
-    def edit
-        
+    def edit   
     end
 
     def update
@@ -36,9 +42,9 @@ class Admin::ArtistsController < Admin::BaseController
         end
       end
     
-  
+    
     private
-  
+
     def artist_params
         params.permit(:spotify_id, :artist_name, :artist_image)
     end
@@ -47,4 +53,3 @@ class Admin::ArtistsController < Admin::BaseController
         @artist = Artist.find(params[:id])
     end
   end
-  
