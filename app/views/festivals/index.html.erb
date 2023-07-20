@@ -1,12 +1,3 @@
-<div class="container py-6">
-  <div class="row">
-    <div class="col-lg-10 offset-lg-1">
-      <!-- 検索フォーム -->
-      <%= render 'search_form', q: @q, url: festivals_path %>
-    </div>
-  </div>
-</div>
-
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   <% @festivals.each do |festival| %>
     <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
@@ -14,7 +5,9 @@
         <%= image_tag('ogp.png', class: 'rounded-t-lg mb-4') %>
       <% end %>
       <h3 class="text-2xl font-bold text-center mb-4"><%= festival.name %></h3>
-      <!-- フェスの追加情報や他の表示内容 -->
+      <p class="text-center mb-2"><span class="font-bold">開催場所:</span> <%= festival.location %></p>
+      <p class="text-center mb-2"><span class="font-bold">都道府県:</span> <%= festival.prefecture %></p>
+      <p class="text-center mb-4"><span class="font-bold">地域:</span> <%= festival.region %></p>
     </div>
   <% end %>
 </div>
