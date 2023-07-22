@@ -1,14 +1,22 @@
 class ArtistsController < ApplicationController
-  before_action :require_login, except: [:index]
+  before_action :require_login, only: :show
+
   def index
     @q = Artist.ransack(params[:q])
     @artists = @q.result(distinct: true).order(created_at: :asc).page(params[:page])
   end
 
   def show
-    @artist = Artist.find(params[:id])
+    @artist = Artist.includes(:festivals).find(params[:id])
+    @festivals = @artist.festivals
+
+    @similar_artists = []
+    if @artist.spotify_id.present?
+      spotify_artist = RSpotify::Artist.find(@artist.spotify_id)
+      related_artist_ids = spotify_artist.related_artists.map(&:id)
+      @similar_artists = Artist.where(spotify_id: related_artist_ids).limit(5)
+    end
     @answers = @artist.answers.includes(:user).order(created_at: :desc)
-    @recommended_artists = @artist.generate_recommendations
   end
 
   def create
@@ -21,11 +29,11 @@ class ArtistsController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def artist_params
     params.require(:artist).permit(:artist_name, :artist_image)
   end
-  
+
 end

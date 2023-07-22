@@ -24,25 +24,37 @@
   <% end %>
 </div>
 
-<h2 class="text-lg font-bold">類似したアーティスト</h2>
-
-<% if @recommended_artists.any? %>
-  <div class="mt-8 grid grid-cols-3 gap-8">
-    <% @recommended_artists.each do |recommended_artist| %>
-      <div class="flex flex-col items-center">
-        <% if recommended_artist.images.any? %>
-          <% image_url = recommended_artist.images.first['url'] %>
-          <%= image_tag(image_url, alt: recommended_artist.name, class: 'w-48 h-48 object-cover rounded-md') %>
-        <% else %>
-          <p class="text-center">画像はありません。</p>
+<% if @similar_artists.any? %>
+  <h2 class="text-2xl text-center font-bold mt-8 mb-4">似たアーティスト</h2>
+  <div class="flex flex-wrap gap-4">
+    <% @similar_artists.each do |similar_artist| %>
+      <div class="m-10 outline p-5 rounded-md w-72 flex items-center"> <!-- 要素の幅を広げて、flexレイアウトを追加 -->
+        <% if similar_artist.artist_image.present? %>
+          <%= link_to artist_path(similar_artist) do %>
+            <%= image_tag(similar_artist.artist_image, class: "w-12 h-12 rounded-full mr-2") %>
+          <% end %>
         <% end %>
-        <p class="text-center mt-2"><%= recommended_artist.name %></p>
+        <div class="flex-grow"> <!-- ボタンとテキストの部分をflex-growで伸ばす -->
+          <p class="break-words"><%= similar_artist.artist_name %></p>
+          <!-- その他の表示内容を追加 -->
+          <%= link_to artist_path(similar_artist), class: "mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" do %>
+            詳細を見る
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
 <% else %>
-  <p>おすすめアーティストはありません。</p>
+  <p class="text-2xl font-bold mt-8">似たアーティストは存在しません。</p>
 <% end %>
 
-
-
+<% if @festivals.any? %>
+    <h2 class="text-2xl font-bold mt-8 mb-4">出演フェス</h2>
+    <ul class="list-disc ml-6">
+      <% @festivals.each do |festival| %>
+        <li><%= link_to festival.name, festival_path(festival), class: "text-blue-600 font-bold" %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="text-xl font-bold mt-8">出演フェスはありません。</p>
+  <% end %>
