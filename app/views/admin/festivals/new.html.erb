@@ -1,0 +1,34 @@
+<%= form_with(model: @festival, url: admin_festivals_path) do |form| %>
+  <div class="mb-4">
+    <%= form.label :"フェス名", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :name, class: "form-input w-full py-2 px-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent", placeholder: "フェス名" %>
+  </div>
+  
+  <div class="mb-4">
+    <%= form.label :"開催場所", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :location, class: "form-input w-full py-2 px-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent", placeholder: "開催場所" %>
+  </div>
+  
+  <div class="mb-4">
+    <%= form.label :"都道府県", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :prefecture, class: "form-input w-full py-2 px-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent", placeholder: "都道府県" %>
+  </div>
+  
+  <div class="mb-4">
+    <%= form.label :"地域", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :region, class: "form-input w-full py-2 px-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent", placeholder: "地域" %>
+  </div>
+  
+  <div class="mb-4">
+    <%= form.label :"アーティスト", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.collection_check_boxes :artist_ids, @artists, :id, :artist_name, class: "form-checkbox h-4 w-4 text-blue-600" %>
+  </div>
+  
+  <%= form.submit "登録する", class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<% end %>
+
+
+
+
+
+

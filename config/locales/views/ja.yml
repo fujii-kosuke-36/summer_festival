@@ -16,3 +16,11 @@ ja:
     destroy:
       success: 'ログアウトしました' 
     
+    admin:
+    user_sessions:
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+      destroy:
+        success: 'ログアウトしました'
+    

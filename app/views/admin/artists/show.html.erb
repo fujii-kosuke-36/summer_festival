@@ -1,0 +1,50 @@
+<div class="container mx-auto mt-10">
+  <div class="mb-4">
+    <span class="text-2xl font-bold">アーティスト名：</span>
+    <%= @artist.artist_name %>
+  </div>
+
+  <div class="mb-4">
+    <span class="text-2xl font-bold">Spotify ID：</span>
+    <%= @artist.spotify_id %>
+  </div>
+
+  <div class="mb-4">
+    <% if @artist.artist_image.present? %>
+      <%= image_tag(@artist.artist_image, class: "w-64 h-64 rounded-full") %>
+    <% else %>
+      <%= image_tag("default_artist_image.png", class: "w-64 h-64 rounded-full") %>
+    <% end %>
+  </div>
+
+  <% if @similar_artists.any? %>
+    <h2 class="text-2xl font-bold mb-4">似たアーティスト</h2>
+    <div class="flex flex-wrap">
+      <% @similar_artists.each do |similar_artist| %>
+        <div class="m-10 outline p-5 rounded-md w-54">
+          <p class="break-words"><%= similar_artist.artist_name %></p>
+          <!-- その他の表示内容を追加 -->
+          <%= link_to "詳細を見る", admin_artist_path(similar_artist), class: "mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="text-xl font-bold">似たアーティストは存在しません。</p>
+  <% end %>
+</div>
+
+<% if @artist.festivals.any? %>
+    <h2 class="text-2xl font-bold mt-8 mb-4">出演したフェス</h2>
+    <ul class="flex flex-wrap gap-4">
+      <% @artist.festivals.each do |festival| %>
+        <li class="flex items-center">
+          <!-- フェスへのリンクを追加 -->
+          <%= link_to festival_path(festival), class: "text-blue-600 font-bold" do %>
+            <%= festival.name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="text-2xl font-bold mt-8">出演したフェスはありません。</p>
+  <% end %>
