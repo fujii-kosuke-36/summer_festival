@@ -1,0 +1,10 @@
+<%= search_form_for q, url: url do |f| %>
+  <div class="flex justify-center mb-3">
+    <%= f.search_field :name_cont, class: 'bg-white rounded-l-lg py-2 px-4 block w-1/4 border border-gray-400 leading-5 placeholder-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5', placeholder: "フェス検索" %>
+    <%= f.search_field :prefecture_eq, class: 'bg-white py-2 px-4 block w-1/4 border-t border-r border-b border-gray-400 leading-5 placeholder-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5', placeholder: "都道府県検索" %>
+    <%= f.search_field :region_eq, class: 'bg-white rounded-r-lg py-2 px-4 block w-1/4 border-t border-r border-b border-gray-400 leading-5 placeholder-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5', placeholder: "地域検索" %>
+    <div class="input-group-append">
+      <%= f.submit class: 'px-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 rounded-r-lg transition duration-150 ease-in-out' %>
+    </div>
+  </div>
+<% end %>

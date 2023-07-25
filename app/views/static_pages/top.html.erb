@@ -4,20 +4,18 @@
       <div class="top-message mx-2 sm:mx-10 mt-5 sm:mt-8 text-2xl sm:text-3xl md:text-4xl leading-normal md:leading-relaxed">
         <h1 class="text-3xl sm:text-4xl"><strong>Fest-Huntは野外フェスに参加する人を支援するサービスです</strong></h1>
       </div>
-      <p class="top-message mx-6 sm:mx-10 mt-8 sm:mt-16 text-sm sm:text-lg font-semibold">一覧をクリックしてお気に入りの曲を見つけましょう</p>
+      <p class="top-message mx-6 sm:mx-10 mt-8 sm:mt-16 text-sm sm:text-lg font-semibold">検索ボタンをクリックしてお気に入りの曲を見つけましょう</p>
     </div>
     <div class="flex flex-col items-center mt-10">
-      <%= link_to 'アーティスト一覧', artists_path, class: 'px-6 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
-      <%= link_to 'フェス一覧', festivals_path, class: 'px-4 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
-      <%= link_to 'おすすめ曲一覧', recommendations_path, class: 'px-4 py-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
+      <%= link_to 'アーティスト検索', artists_path, class: 'px-6 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
+      <%= link_to 'フェス検索', festivals_path, class: 'px-4 py-4 mb-4 text-white uppercase bg-green-500 border-2 border-transparent rounded-lg text-md hover:bg-green-400' %>
     </div>
   </div>
 </div>
 
-<<div class='mt-8 md:mt-12 mx-2 md:mx-14'>
+<div class='mt-8 md:mt-12 mx-2 md:mx-14'>
   <div class='text-center text-xl md:text-3xl font-bold text-syuiro my-1 md:my-5'>Fest-Huntの使い方</div>
   <div class='mb-20'>
-    <!-- ステップ1: アーティストorフェスの検索 -->
     <div class="flex items-stretch md:px-8 lg:px-16">
       <div class="w-1/2 lg:w-1/3">
         <%= image_tag "step1.jpg", size:"400x200" %>
@@ -31,7 +29,6 @@
         </p>
       </div>
     </div>
-    <!-- ステップ2: おすすめ曲の投稿 -->
     <div class="flex items-stretch md:px-8 lg:px-16">
       <div class='text-left pr-10 md:text-left text-sm md:text-xl w-1/2 self-center'>
         <p>
@@ -46,7 +43,6 @@
         <%= image_tag "step2.jpg", size:"400x200" %>
       </div>
     </div>
-    <!-- ステップ3: お気に入りの曲をブックマーク -->
     <div class="flex items-stretch md:px-8 lg:px-16">
       <div class="w-1/2 lg:w-1/3">
         <%= image_tag "step3.jpg", size:"400x200" %>
