@@ -1,3 +1,12 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <!-- 検索フォーム -->
+      <%= render 'search_form', q: @q, url: festivals_path %>
+    </div>
+  </div>
+</div>
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   <% @festivals.each do |festival| %>
     <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
@@ -11,3 +20,4 @@
     </div>
   <% end %>
 </div>
+<div class="flex justify-start md:justify-center btn-group w-screen m-2"><%= paginate @festivals %></div>
