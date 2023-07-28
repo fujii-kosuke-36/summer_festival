@@ -23,7 +23,6 @@
       <% @similar_artists.each do |similar_artist| %>
         <div class="m-10 outline p-5 rounded-md w-54">
           <p class="break-words"><%= similar_artist.artist_name %></p>
-          <!-- その他の表示内容を追加 -->
           <%= link_to "詳細を見る", admin_artist_path(similar_artist), class: "mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" %>
         </div>
       <% end %>
@@ -38,7 +37,6 @@
     <ul class="flex flex-wrap gap-4">
       <% @artist.festivals.each do |festival| %>
         <li class="flex items-center">
-          <!-- フェスへのリンクを追加 -->
           <%= link_to festival_path(festival), class: "text-blue-600 font-bold" do %>
             <%= festival.name %>
           <% end %>
