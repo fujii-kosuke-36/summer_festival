@@ -9,44 +9,24 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
   <% @answers.each do |answer| %>
     <div class="card p-4 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-      <iframe class="mb-2" style="border-radius: 12px;" src="https://open.spotify.com/embed/track/<%= answer.answer %>?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipanswer-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe class="mb-2" style="border-radius: 12px;" src="https://open.spotify.com/embed/track/<%= answer.answer %>?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <h3 class="text-2xl font-bold text-center mb-4"><%= answer.user.name %></h3>
-      <div class="flex justify-center mt-6">
+      <div class="flex justify-center mt-2 mb-4">
         <% if answer.user == current_user %>
           <%= button_to "削除", artist_answer_path(@artist, answer), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+          <div class="text-center title ml-2 mt-3">
+            <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{CGI.escape("https://open.spotify.com/embed/track/#{answer.answer}")}%0a", title: 'Twitter', class: 'fab fa-twitter', style: "color: #1da1f2; font-size: 1.5em;", target: '_blank' do %>
+            <% end %>
+          </div>
         <% else %>                     
           <%= render 'bookmarks/bookmark_button', answer: answer %>                             
-          <span id="js-bookmark-count-for-answer-<%= answer.id %>">
+          <span id="js-bookmark-count-for-answer-<%= answer.id %>">            
           </span>       
         <% end %>
       </div>
     </div>
   <% end %>
 </div>
-
-
-<% if @similar_artists.any? %>
-  <h2 class="text-2xl text-center font-bold mt-8 mb-4">似たアーティスト</h2>
-  <div class="flex flex-wrap gap-4">
-    <% @similar_artists.each do |similar_artist| %>
-      <div class="m-10 outline p-5 rounded-md w-72 flex items-center">
-        <% if similar_artist.artist_image.present? %>
-          <%= link_to artist_path(similar_artist) do %>
-            <%= image_tag(similar_artist.artist_image, class: "w-12 h-12 rounded-full mr-2") %>
-          <% end %>
-        <% end %>
-        <div class="flex-grow">
-          <p class="break-words"><%= similar_artist.artist_name %></p>
-          <%= link_to artist_path(similar_artist), class: "mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" do %>
-            詳細を見る
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <p class="text-2xl font-bold mt-8">似たアーティストは存在しません。</p>
-<% end %>
 
 <% if @festivals.any? %>
   <h2 class="text-2xl font-bold mt-8 mb-4">出演フェス</h2>
