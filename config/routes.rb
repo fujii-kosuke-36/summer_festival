@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :answers, only: %i[new create update destroy]
   end
   resources :bookmarks, only: %i[index create destroy]
+  resource :profile, only: %i[show edit update destroy]
 
   namespace :admin do
     root to: 'dashboards#index'

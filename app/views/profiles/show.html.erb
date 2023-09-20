@@ -1,0 +1,14 @@
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+    <div class="flex flex-col items-center gap-4 md:gap-6">
+      <div class="flex flex-col sm:flex-row items-center gap-10">
+        <div class="font-bold">
+          <a class="text-2xl text-gray-800"><%= @user.name %></a>
+        </div>
+      </div>
+        <div>
+          <%= link_to "プロフィールを編集", edit_profile_path, class: "border-2 border-gray-600 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-gray-600 transition duration-300"%>
+        </div>
+    </div>
+  </div>
+ </div>
