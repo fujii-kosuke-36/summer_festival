@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarked_answers, through: :bookmarks, source: :answer
+  has_many :group_users, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

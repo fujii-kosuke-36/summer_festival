@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :answers, only: %i[new create update destroy]
   end
   resources :bookmarks, only: %i[index create destroy]
+  resource :profile, only: %i[show edit update destroy]
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update] do
+    resource :group_users, only: [:create, :destroy]
+  end
 
   namespace :admin do
     root to: 'dashboards#index'

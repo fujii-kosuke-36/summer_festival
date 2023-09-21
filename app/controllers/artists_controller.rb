@@ -9,13 +9,6 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.includes(:festivals).find(params[:id])
     @festivals = @artist.festivals
-
-    @similar_artists = []
-    if @artist.spotify_id.present?
-      spotify_artist = RSpotify::Artist.find(@artist.spotify_id)
-      related_artist_ids = spotify_artist.related_artists.map(&:id)
-      @similar_artists = Artist.where(spotify_id: related_artist_ids).limit(5)
-    end
     @answers = @artist.answers.includes(:user).order(created_at: :desc)
   end
 
